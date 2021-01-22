@@ -15,7 +15,7 @@ const [jobs,setJobs] = useState([])
 
   useEffect(()=>{
 showContent()
-console.log(jobs);
+ 
   },[])
 
 if(loading){
@@ -26,12 +26,12 @@ if(loading){
 const {id,order,title,dates,duties,company} = jobs[value]
  
   return (
-    <section>
+    <section   className='section'>
   <div className="main-title">
   <h1>Experience</h1>
   <div className="underline"></div>
   </div>
-  <article className='article-container' >
+  <article key={id} className='article-container' >
    <div className="btn-container">
 {jobs.map((btn,index)=>{
 const {company} = btn
@@ -47,7 +47,7 @@ const {company} = btn
    
   {duties.map((duty,index)=>{
     return <div className="para-container" key={index} >
-    <FaAngleDoubleRight></FaAngleDoubleRight>
+    <FaAngleDoubleRight className='arrow' ></FaAngleDoubleRight>
     <p>{duty}</p>
     </div>
   })}
